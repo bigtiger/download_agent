@@ -1,0 +1,29 @@
+:general:
+  # Make this something unique that stands out to you.
+  # As a suggestion use the title of the site you are
+  # pulling videos from.
+  :email_title: MyVideoSite
+
+  # Domain is used to build up the links to download the videos.
+  # This MIGHT be different from the video archive URL, i.e.,
+  # http://media.example.com.
+  :domain: http://www.example.com
+
+  # Use the selector gadget from http://selectorgadget.com
+  # to find the anchor that represents the video.
+  :video_css_selector: .download a
+
+  # Use this selector to find all the links to the pages that 
+  # have the videos.
+  :archive_page_css_selector: "#main a"
+
+  # This is the text that is inside the anchor tag.
+  :video_link_text: Download
+
+  # Most video sites have an archive page.  You want that here.
+  :video_archive_url: http://www.example.com/videos/archive
+
+  # Who do you want the emails to go to?  This can be a comma
+  # separated list.
+  :mail_to: me@example.com
+

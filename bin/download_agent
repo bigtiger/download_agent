@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'open-uri'
+require 'nokogiri'
+require 'action_mailer'
+require 'active_support'
+require 'yaml'
+
+trap("SIGINT") { exit! }
+
+agent_dir = ::File.expand_path(::File.join(ENV['HOME'], '.download_agent'))
+recipe_dir = ::File.expand_path(::File.join(agent_dir, 'recipes'))
+Dir.mkdir(agent_dir) unless File::directory?(agent_dir)
+Dir.mkdir(recipe_dir) unless File::directory?(recipe_dir)
+
+require File.expand_path(
+    File.join(File.dirname(__FILE__), %w[.. lib download_agent]))
+
+search_me = ::File.expand_path(::File.join(recipe_dir, '*.yml'))
+Dir.glob(search_me).sort.each {|recipe| Recipe.process :recipe => recipe}
+
